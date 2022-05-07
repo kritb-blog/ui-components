@@ -47,7 +47,7 @@ jobs:
       - name: build package
         run: yarn build
       - name: update storybook
-        run: yarn deploy-storybook
+        run: yarn predeploy && yarn deploy-storybook
       - name: release
         run: yarn semantic-release
         env:

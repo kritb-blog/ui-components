@@ -128,3 +128,4 @@ yarn-error.log*
 
 #storybook
 storybook-static
+docs-build

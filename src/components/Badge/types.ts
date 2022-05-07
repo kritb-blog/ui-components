@@ -1,8 +1,8 @@
-import { Sizes } from "../../theming/sizes";
+import { IconSize } from "../../theming/sizes";
 
 export interface BadgeProps {
   targetUrl?: string;
   badgeImageUrl?: string;
   badgeName?: string;
-  size: Sizes;
+  size: IconSize;
 }

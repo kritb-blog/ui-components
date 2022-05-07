@@ -19,5 +19,6 @@
     "emitDeclarationOnly": true,
     "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/stories"]
 }

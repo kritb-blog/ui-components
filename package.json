@@ -9,7 +9,6 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node scripts/start.js",
     "build": "rollup -c",
     "lint": "eslint src/*",
     "test": "node scripts/test.js",
@@ -94,6 +93,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -204,6 +206,8 @@
     ]
   },
   "dependencies": {
-    "clsx": "^1.1.1"
+    "@types/styled-components": "^5.1.25",
+    "clsx": "^1.1.1",
+    "styled-components": "^5.3.5"
   }
 }

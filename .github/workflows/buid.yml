@@ -46,8 +46,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - name: build package
         run: yarn build
-      - name: update storybook
-        run: yarn deploy-storybook
       - name: release
         run: yarn semantic-release
         env:

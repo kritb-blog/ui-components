@@ -1,8 +1,6 @@
 import React from "react";
 import Tile from "../Tile";
 import { IGridProps, IRowProps } from "./types";
-import IsometricPlane from "../IsometricPlane";
-import Grid from "../Grid";
 import "./styles.css";
 
 const Row: React.FunctionComponent<IRowProps> = ({
@@ -21,7 +19,7 @@ const Row: React.FunctionComponent<IRowProps> = ({
   );
 };
 
-const IsometricGrid: React.FunctionComponent<IGridProps> = ({
+const Grid: React.FunctionComponent<IGridProps> = ({
   opts,
   className,
   onTileHover,
@@ -48,18 +46,7 @@ const IsometricGrid: React.FunctionComponent<IGridProps> = ({
         </Row>
       ));
   };
-  return (
-    <IsometricPlane>
-      <div className={className}>
-        <Grid
-          renderTile={renderTile}
-          opts={opts}
-          onTileClick={onTileClick}
-          onTileHover={onTileHover}
-        />
-      </div>
-    </IsometricPlane>
-  );
+  return <div className={className}>{generateGrid()}</div>;
 };
 
-export default IsometricGrid;
+export default Grid;

@@ -1,0 +1,54 @@
+name: "build"
+
+on:
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - v*.*.*
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: install ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+      - run: yarn install --frozen-lockfile
+      - name: check formatting
+        run: yarn lint
+      - name: unit test
+        run: yarn test
+      - name: build package
+        run: yarn build
+
+  semantic-release:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && ( github.ref == 'refs/heads/release' || github.ref == 'refs/heads/pre' )
+    needs: [build]
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: install ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn install --frozen-lockfile
+      - name: build package
+        run: yarn build
+      - name: release
+        run: yarn semantic-release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}

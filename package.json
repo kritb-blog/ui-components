@@ -16,9 +16,9 @@
     "format": "prettier --write .",
     "semantic-release": "semantic-release",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "predeploy": "npm run build-storybook",
-    "deploy-storybook": "gh-pages -d storybook-static"
+    "deploy-storybook": "gh-pages -d docs-build"
   },
   "eslintConfig": {
     "extends": [

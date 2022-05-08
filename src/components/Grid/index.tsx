@@ -1,7 +1,7 @@
 import React from "react";
 import Tile from "../Tile";
 import { IGridProps, IRowProps } from "./types";
-import "./styles.css";
+import { StyledRow } from "./styles";
 
 const Row: React.FunctionComponent<IRowProps> = ({
   blockSize,
@@ -10,12 +10,9 @@ const Row: React.FunctionComponent<IRowProps> = ({
 }) => {
   const width = blockSize * numOfCol;
   return (
-    <div
-      className="row"
-      style={{ width: `${width}px`, height: `${blockSize}px` }}
-    >
+    <StyledRow width={width} blockSize={blockSize}>
       {children}
-    </div>
+    </StyledRow>
   );
 };
 

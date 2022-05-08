@@ -1,8 +1,12 @@
 import React from "react";
 import { StyledIsometricPlane } from "./styles";
 
-const IsometricPlane: React.FC = (props) => {
-  return <StyledIsometricPlane>{props.children}</StyledIsometricPlane>;
+export interface Props {
+  children?: React.ReactNode;
+}
+
+const IsometricPlane: React.FunctionComponent<Props> = ({ children }) => {
+  return <StyledIsometricPlane>{children}</StyledIsometricPlane>;
 };
 
 export default IsometricPlane;

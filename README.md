@@ -1,5 +1,5 @@
+[![build](https://github.com/kritb-blog/ui-components/actions/workflows/buid.yml/badge.svg)](https://github.com/kritb-blog/ui-components/actions/workflows/buid.yml)
 # Getting Started
-
 UI components library to be used for kritb blog [Storybook](https://kritb-blog.github.io/ui-components/)
 
 # References

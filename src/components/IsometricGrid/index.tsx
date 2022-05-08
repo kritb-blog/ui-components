@@ -2,7 +2,6 @@ import React from "react";
 import { IGridProps } from "./types";
 import IsometricPlane from "../IsometricPlane";
 import Grid from "../Grid";
-import "./styles.css";
 
 const IsometricGrid: React.FunctionComponent<IGridProps> = ({
   opts,
